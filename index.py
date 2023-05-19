@@ -1,2 +1,4 @@
-print("hello world")
-print("this stuff is only for testing reasons")
+import random
+from test import*;
+x = "jeff"
+HB2U(x)
