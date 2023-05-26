@@ -32,7 +32,7 @@ class unit:
     killerbow = Items("Killer Bow",9,70,40,0,0)
     fire = Items("Fire",7,90,0,1,1)
     thunder = Items("Thunder",8,80,15,1,2)
-    heal = Items("Heal",0,100,0,3,3)
+    Shine = Items("Shine",4,100,10,1,3)
     def __init__(self):
         self.HP = 1
         self.STR = 0
@@ -60,12 +60,14 @@ class unit:
         print("")
         print("1 Warrior  HP:52 , str: 12, mag:1 , dex: 4, speed: 6, luck:3 , def:5 , Skills: none, Items: hand axe, shortbow")
         print("2 Sorrcerer  HP:31 , str:5 , mag:11 , dex: 7, speed: 5, luck:4 , def:5 , Skills: none")
-        print("3 Monk  HP:28 , str:7 , mag:9 , dex: 6, speed: 7, luck: , def:4 , Skills: mircale ( luck % chance to survive a lethal attack)")
+        print("3 Monk  HP:28 , str:7 , mag:9 , dex: 6, speed: 7, luck:5 , def:4 , Skills: mircale ( luck % chance to survive a lethal attack)")
         print("4 Theif  HP:29 , str:6 , mag:5 , dex: 11, speed: 8, luck:10 , def:4 , Skills: none, Items: Shortsword")
         print("5 Vagabond  HP:35 , str:8 , mag:4 , dex: 8, speed: 11, luck:7 , def:6 , Skills: pursuit (changes muliti attack formula (if unit's speed > foes speed)), Items: Long sword, handaxe")
         print("6 Brigand  HP: 47 , str: 14, mag: 2, dex: 2, speed: 6, luck: 6, def: 4, Skills: none, Items: Battle AXe")
-        print("7 Knight  HP: 43, Str: 13, Mag: 1, dex: 7, Speed:2, luck: 3, def: 13, Skiils: Big Sheild(luck % chance to negate pyshical damage), Items: Long Sword, Lance")
-        print("10 Deprived  HP: 38, str:9 , mag: 9, dex: 9, speed: 9, luck: 9, def: 9, Skills: none, Items: rusted knife")
+        print("7 Knight  HP: 43, Str: 13, Mag: 1, dex: 7, Speed: 2, luck: 3, def: 13, Skiils: Big Sheild(luck % chance to negate pyshical damage), Items: Long Sword, Lance")
+        print("8 soldier  HP: 39, Str: 8, Mag: 3, dex: 10, speed: 5, Luck: 5, def: 5, Skills: none, Items: Pike, Javalin")
+        print("9 Durid  HP: 34, str: 6, Mag: 13, dex: 4, speed: 4, luck: 4, def: 7, Skills: none, Items misma, ")
+        print("10 Deprived  HP: 38, str:10 , mag: 10, dex: 10, speed: 10, luck: 10, def: 10, Skills: none, Items: rusted knife")
         pick = input("")
         if int(pick) == 1:
             print("your class is a Warrior")
@@ -76,7 +78,7 @@ class unit:
             self.SPEED =6
             self.LUCK = 3
             self.DEF = 5
-            self.Mana = self.MAG
+            self.Mana = self.MAG*2
             self.items.append(self.handaxe)
             self.items.append(self.shortbow)
         elif int(pick) == 2:
@@ -92,7 +94,7 @@ class unit:
             self.SPEED =8
             self.LUCK = 10
             self.DEF = 4
-            self.Mana = self.MAG
+            self.Mana = self.MAG*2
             self.items.append(self.shortsword)
         elif int(pick) == 5:
             print("your class is a Vagabond")
@@ -103,7 +105,7 @@ class unit:
             self.SPEED =11
             self.LUCK = 7
             self.DEF = 6
-            self.Mana = self.MAG
+            self.Mana = self.MAG*2
             self.items.append(self.longsword)
             self.items.append(self.handaxe)
         elif int(pick) == 6:
@@ -115,7 +117,7 @@ class unit:
             self.SPEED =6
             self.LUCK = 6
             self.DEF = 4
-            self.Mana = self.MAG
+            self.Mana = self.MAG*2
             self.items.append(self.battleaxe)
         elif int(pick) == 7:
             print("Your class is a Knight")
@@ -126,19 +128,19 @@ class unit:
             self.SPEED =2
             self.LUCK = 3
             self.DEF = 13
-            self.Mana = self.MAG
+            self.Mana = self.MAG*2
             self.items.append(self.longsword)
             self.items.append(self.lance)
         else:
             print("your class is a deprived")
             self.append = 38
-            self.STR = 9
-            self.MAG = 9
-            self.DEX = 9
-            self.SPEED =9
-            self.LUCK = 9
-            self.DEF = 9
-            self.Mana = self.MAG
+            self.STR = 10
+            self.MAG = 10
+            self.DEX = 10
+            self.SPEED =10
+            self.LUCK = 10
+            self.DEF = 10
+            self.Mana = self.MAG*2
             self.items.append(self.rustedknife)
         return
     def printStats(self):
@@ -162,7 +164,7 @@ class unit:
         self.SPEED = int(random.randrange(0,4))
         self.LUCK = int(random.randrange(0,2))
         self.DEF = int(random.randrange(0,3))
-        self.Mana = self.MAG
+        self.Mana = self.MAG*2
         temp = random.randrange(1,101)
         if int(temp) >= 95:
             self.items.append(self.longsword)
@@ -178,7 +180,7 @@ class unit:
         self.SPEED = int(random.randrange(0,6))
         self.LUCK = int(random.randrange(0,2))
         self.DEF = int(random.randrange(0,2))
-        self.Mana = self.MAG
+        self.Mana = self.MAG*2
         temp = random.randrange(1,101)
         if int(temp) >= 95:
             self.items.append(self.killerbow)
@@ -194,7 +196,7 @@ class unit:
         self.SPEED = int(random.randrange(2,3))
         self.LUCK = int(random.randrange(0,1))
         self.DEF = int(random.randrange(3,6))
-        self.Mana = self.MAG
+        self.Mana = self.MAG*2
         temp = random.randrange(1,101)
         if int(temp) >= 81:
             self.items.append(self.longsword)
@@ -212,7 +214,7 @@ class unit:
         self.SPEED = int(random.randrange(6,9))
         self.LUCK = int(random.randrange(2,5))
         self.DEF = int(random.randrange(4,7))
-        self.Mana = self.MAG
+        self.Mana = self.MAG*2
         temp = random.randrange(1,101)
         if int(temp) >= 51:
             self.items.append(self.lance)
